@@ -1,0 +1,45 @@
+<input type="text" class="form-control" placeholder="Search by emplyoee name" [(ngModel)]="query" id="listSearch">
+<br>
+<table >
+    <tr>
+      <th class="center-text">Employee Id</th>
+      <th class="center-text">Employee Name</th>
+      <th class="center-text">Department</th>
+    </tr>
+      <tr *ngFor='let employee of employeeData | LockFilter: query'>
+          <td (click)="showModalWindow(employee)" class="link center-text">  {{employee.id}}</td>
+          <td class="center-text">{{employee.name}}</td>
+          <td class="center-text">{{employee.departmentName}}</td>
+      </tr>
+
+  </table>
+
+  <div
+  class="modal"
+  tabindex="-1"
+  role="dialog"
+  [ngStyle]="{'display':showModal}">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Employee Detail</h4>
+      </div>
+      <div class="modal-body">
+        <div>Employee Id :{{selectedEmployee?.id}}</div>
+        <div>Employee Name :{{selectedEmployee?.name}}</div>
+        <div>Phone :{{selectedEmployee?.phone}}</div>
+        <div>Email :{{selectedEmployee?.email}}</div>
+        <div>Department Id :{{selectedEmployee?.deptid}}</div>
+        <div>Department Name :{{selectedEmployee?.departmentName}}</div>
+        <div>Cost Center :{{selectedEmployee?.costCenter}}</div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger"
+                (click)="closePopup()">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

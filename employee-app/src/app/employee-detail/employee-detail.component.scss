@@ -1,0 +1,22 @@
+.link{
+    color:blue;
+    cursor: pointer;
+}
+
+.center-text{
+    text-align:center
+}
+
+table, th, td {
+  border: 1px solid;
+  color: #444;
+  background: #eee;
+  }
+table {
+    width: 100%;
+}
+td {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+}
